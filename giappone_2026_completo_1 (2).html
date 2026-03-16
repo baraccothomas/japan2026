@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giappone 2026 · Itinerario Completo</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f4f0; color: #1a1a18; padding: 24px 16px; max-width: 740px; margin: 0 auto; }
+  h1 { font-size: 24px; font-weight: 500; margin-bottom: 4px; }
+  .subtitle { font-size: 14px; color: #5f5e5a; margin-bottom: 8px; }
+  .overview { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 28px; margin-top: 12px; }
+  .ov-pill { font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; }
+  .city-divider { display: flex; align-items: center; gap: 10px; margin: 22px 0 10px; }
+  .city-pill { font-size: 12px; font-weight: 500; padding: 4px 14px; border-radius: 20px; white-space: nowrap; }
+  .city-line { flex: 1; height: 0.5px; background: #d3d1c7; }
+  .day-card { border: 0.5px solid #d3d1c7; border-radius: 12px; margin-bottom: 8px; overflow: hidden; background: #fff; }
+  .day-header { display: flex; align-items: center; gap: 10px; padding: 11px 14px; cursor: pointer; user-select: none; }
+  .day-header:hover { background: #f5f4f0; }
+  .day-badge { font-size: 10px; font-weight: 500; padding: 2px 8px; border-radius: 20px; white-space: nowrap; min-width: 96px; text-align: center; }
+  .day-meta { flex: 1; }
+  .day-title { font-size: 14px; font-weight: 500; }
+  .day-sub { font-size: 11px; color: #5f5e5a; margin-top: 1px; }
+  .chevron { font-size: 13px; color: #888780; transition: transform .2s; display: inline-block; }
+  .chevron.open { transform: rotate(90deg); }
+  .day-body { display: none; padding: 0 14px 12px; }
+  .day-body.open { display: block; }
+  .slot { display: flex; gap: 10px; padding: 7px 0; border-bottom: 0.5px solid #e8e6e0; }
+  .slot:last-child { border-bottom: none; }
+  .slot-time { font-size: 11px; color: #888780; min-width: 52px; padding-top: 2px; flex-shrink: 0; }
+  .slot-content { flex: 1; }
+  .slot-title { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
+  .slot-desc { font-size: 12px; color: #5f5e5a; line-height: 1.55; }
+  .tag { display: inline-block; font-size: 10px; font-weight: 500; padding: 1px 6px; border-radius: 10px; margin-right: 3px; margin-top: 3px; }
+  .tag-free { background: #EAF3DE; color: #3B6D11; }
+  .tag-book { background: #FAECE7; color: #993C1D; }
+  .tag-tip  { background: #E6F1FB; color: #185FA5; }
+  .tag-food { background: #FAEEDA; color: #854F0B; }
+  .tag-warn { background: #FCEBEB; color: #A32D2D; }
+  .tag-transit { background: #EEEDFE; color: #3C3489; }
+  .tag-onsen { background: #F4C0D1; color: #72243E; }
+  .tip-box { background: #f5f4f0; border-radius: 8px; padding: 9px 12px; margin-top: 8px; font-size: 12px; color: #5f5e5a; line-height: 1.6; }
+  .prenotare-box { background: #fff; border: 0.5px solid #d3d1c7; border-radius: 12px; padding: 14px 16px; font-size: 12px; color: #5f5e5a; line-height: 1.9; }
+  .prenotare-box div { border-bottom: 0.5px solid #e8e6e0; padding-bottom: 6px; margin-bottom: 6px; }
+  .prenotare-box div:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+</style>
+</head>
+<body>
+
+<h1>Giappone 2026</h1>
+<p class="subtitle">21 agosto – 5 settembre · 15 notti · Haneda arrivo · Narita partenza</p>
+<div class="overview">
+  <span class="ov-pill" style="background:#D3D1C7;color:#2C2C2A">21 ago · Arrivo</span>
+  <span class="ov-pill" style="background:#EEEDFE;color:#3C3489">22–28 ago · Tokyo · 7 giorni</span>
+  <span class="ov-pill" style="background:#E1F5EE;color:#085041">29 ago–1 set · Kyoto · 4 giorni</span>
+  <span class="ov-pill" style="background:#FAECE7;color:#712B13">2 set · Hiroshima + Miyajima</span>
+  <span class="ov-pill" style="background:#FAEEDA;color:#633806">2–4 set · Osaka · 3 giorni</span>
+  <span class="ov-pill" style="background:#D3D1C7;color:#2C2C2A">5 set · Partenza Narita</span>
+</div>
+
+<!-- ==================== ARRIVO ==================== -->
+<div class="city-divider">
+  <span class="city-pill" style="background:#D3D1C7;color:#2C2C2A">Arrivo · 21 agosto · Venerdì</span>
+  <div class="city-line"></div>
+</div>
+
+<div class="day-card">
+  <div class="day-header" onclick="toggle('a1')">
+    <span class="day-badge" style="background:#D3D1C7;color:#2C2C2A">21 ago · Ven</span>
+    <div class="day-meta"><div class="day-title">Arrivo a Tokyo — Haneda</div><div class="day-sub">Check-in, prima notte</div></div>
+    <span class="chevron" id="chev-a1">›</span>
+  </div>
+  <div class="day-body" id="a1">
+    <div class="slot"><div class="slot-time">Sera</div><div class="slot-content"><div class="slot-title">Atterraggio Haneda + trasferimento</div><div class="slot-desc">Keikyu Line o Tokyo Monorail fino a Shinjuku o Asakusa (~30–40 min). Ritira JR Pass al banco in aeroporto se prenotato in anticipo. Attiva SIM o eSIM, ricarica Suica.</div><span class="tag tag-tip">Ritira JR Pass in aeroporto</span></div></div>
+    <div class="slot"><div class="slot-time">Notte</div><div class="slot-content"><div class="slot-title">Check-in e riposo</div><div class="slot-desc">Cena leggera in konbini (onigiri, ramen istantaneo, tamago sando). Domani inizia sul serio.</div><span class="tag tag-food">Konbini</span></div></div>
+    <div class="tip-box">Zona consigliata per l'hotel: Shinjuku (centrale per la metro, vicino alla stazione Shinkansen) o Shibuya (più vicino a Nakameguro e Shimokitazawa). 8 notti fino al 28 agosto incluso.</div>
+  </div>
+</div>
+
+<!-- ==================== TOKYO ==================== -->
+<div class="city-divider">
+  <span class="city-pill" style="background:#EEEDFE;color:#3C3489">Tokyo · 22–28 agosto · 7 giorni</span>
+  <div class="city-line"></div>
+</div>
+
+<!-- 22 SAB -->
+<div class="day-card">
+  <div class="day-header" onclick="toggle('t1')">
+    <span class="day-badge" style="background:#EEEDFE;color:#3C3489">22 ago · Sab</span>
+    <div class="day-meta"><div class="day-title">Arrivo e primo impatto — Shinjuku</div><div class="day-sub">Jet lag management + orientamento</div></div>
+    <span class="chevron" id="chev-t1">›</span>
+  </div>
+  <div class="day-body" id="t1">
+    <div class="slot"><div class="slot-time">Mattina</div><div class="slot-content"><div class="slot-title">Riposo e colazione</div><div class="slot-desc">Non pianificare nulla di intenso. Colazione in konbini, esplora il quartiere dell'hotel con calma. Il jet lag col Giappone è pesante — prenditi la mattina.</div><span class="tag tag-tip">Prenditi con calma</span></div></div>
+    <div class="slot"><div class="slot-time">Pomeriggio</div><div class="slot-content"><div class="slot-title">Orientamento a Shinjuku</div><div class="slot-desc">Passeggiata nel quartiere, scopri il sistema metro, visita Takashimaya o Isetan per capire i grandi magazzini giapponesi. Golden Gai di giorno (di notte è per i bar).</div></div></div>
+    <div class="slot"><div class="slot-time">Sera</div><div class="slot-content"><div class="slot-title">Tokyo Metropolitan Government Building</div><div class="slot-desc">Vista panoramica GRATIS dal 45° piano — torre nord. Aperto fino alle 22:30. Cena in uno dei mille ramen o izakaya nei vicoli di Shinjuku.</div><span class="tag tag-free">Gratis</span></div></div>
+  </div>
+</div>
+
+<!-- 23 DOM -->
+<div class="day-card">
+  <div class="day-header" onclick="toggle('t2')">
+    <span class="day-badge" style="background:#EEEDFE;color:#3C3489">23 ago · Dom</span>
+    <div class="day-meta"><div class="day-title">Asakusa, Akihabara & Ueno</div><div class="day-sub">Tokyo storica + nerd culture</div></div>
+    <span class="chevron" id="chev-t2">›</span>
+  </div>
+  <div class="day-body" id="t2">
+    <div class="slot"><div class="slot-time">7:30</div><div class="slot-content"><div class="slot-title">Senso-ji — Asakusa</div><div class="slot-desc">Il tempio più visitato di Tokyo. Arriva prima delle 8:30 per trovarlo quasi deserto. Kaminarimon, Nakamise-dori, pagoda a cinque piani.</div><span class="tag tag-free">Gratis</span><span class="tag tag-tip">Entro le 8:00</span></div></div>
+    <div class="slot"><div class="slot-time">9:30</div><div class="slot-content"><div class="slot-title">Nakamise & passeggiata Asakusa</div><div class="slot-desc">Souvenir, ningyo-yaki, melone pan. Hoppy Street per capire il Giappone retrò-popolare.</div><span class="tag tag-food">Street food</span></div></div>
+    <div class="slot"><div class="slot-time">11:30</div><div class="slot-content"><div class="slot-title">Ueno — parco e musei</div><div class="slot-desc">Parco di Ueno, stagno Shinobazu. Tokyo National Museum opzionale per arte classica giapponese (samurai, ceramiche, kimono).</div><span class="tag tag-book">~1000¥ museo</span></div></div>
+    <div class="slot"><div class="slot-time">14:30</div><div class="slot-content"><div class="slot-title">Akihabara</div><div class="slot-desc">Elettronica, anime, manga, retrogaming. Yodobashi Camera, figure multi-piano, maid café opzionale.</div></div></div>
+    <div class="slot"><div class="slot-time">Sera</div><div class="slot-content"><div class="slot-title">Cena: ramen o katsu curry</div><div class="slot-desc">CoCo Ichibanya per curry katsu, o ramen locale nelle traverse di Akihabara.</div><span class="tag tag-food">Cena</span></div></div>
+  </div>
+</div>
+
+<!-- 24 LUN -->
+<div class="day-card">
+  <div class="day-header" onclick="toggle('t3')">
+    <span class="day-badge" style="background:#EEEDFE;color:#3C3489">24 ago · Lun</span>
+    <div class="day-meta"><div class="day-title">Harajuku, Shibuya & Omotesandō</div><div class="day-sub">Pop culture, moda e l'incrocio più famoso del mondo</div></div>
+    <span class="chevron" id="chev-t3">›</span>
+  </div>
+  <div class="day-body" id="t3">
+    <div class="slot"><div class="slot-time">8:30</div><div class="slot-content"><div class="slot-title">Meiji Jingū</div><div class="slot-desc">Santuario shintoista nel bosco dedicato all'Imperatore Meiji. Atmosfera opposta al caos urbano — avviale alberato, pace totale.</div><span class="tag tag-free">Gratis</span></div></div>
+    <div class="slot"><div class="slot-time">10:00</div><div class="slot-content"><div class="slot-title">Takeshita Street — Harajuku</div><div class="slot-desc">Cosplay, moda alternativa, crepes assurde. Lunedì mattina è tranquillo rispetto al weekend.</div><span class="tag tag-food">Street food</span></div></div>
+    <div class="slot"><div class="slot-time">11:30</div><div class="slot-content"><div class="slot-title">Omotesandō</div><div class="slot-desc">Flagship store di tutti i grandi brand, architetture di Tadao Ando e Herzog & de Meuron. Depachika di Omotesandō Hills per il pranzo.</div><span class="tag tag-food">Pranzo</span></div></div>
+    <div class="slot"><div class="slot-time">15:00</div><div class="slot-content"><div class="slot-title">Shibuya Crossing + Shibuya Sky</div><div class="slot-desc">Attraversa l'incrocio a piedi, poi sali sulla terrazza panoramica per vederlo dall'alto.</div><span class="tag tag-book">Shibuya Sky ~2000¥ · Prenota</span></div></div>
+    <div class="slot"><div class="slot-time">Sera</div><div class="slot-content"><div class="slot-title">Cena a Shimokitazawa</div><div class="slot-desc">10 min di treno da Shibuya: quartiere bohémien con vinili, bar jazz, izakaya economici.</div><span class="tag tag-food">Cena</span></div></div>
+  </div>
+</div>
+
+<!-- 25 MAR -->
+<div class="day-card">
+  <div class="day-header" onclick="toggle('t4')">
+    <span class="day-badge" style="background:#EEEDFE;color:#3C3489">25 ago · Mar</span>
+    <div class="day-meta"><div class="day-title">Day trip — Nikkō</div><div class="day-sub">Santuari UNESCO tra i boschi + cascate</div></div>
+    <span class="chevron" id="chev-t4">›</span>
+  </div>
+  <div class="day-body" id="t4">
+    <div class="slot"><div class="slot-time">7:00</div><div class="slot-content"><div class="slot-title">Partenza da Asakusa o Shinjuku</div><div class="slot-desc">Tobu Nikko Line da Asakusa (1h50, ~1400¥) oppure JR da Shinjuku (2h, coperto da JR Pass).</div><span class="tag tag-tip">Parti presto</span></div></div>
+    <div class="slot"><div class="slot-time">9:00</div><div class="slot-content"><div class="slot-title">Tōshō-gū</div><div class="slot-desc">Santuario UNESCO dedicato a Tokugawa Ieyasu — il più elaborato e dorato del Giappone. Le tre scimmie sagge sono qui.</div><span class="tag tag-book">~1300¥</span></div></div>
+    <div class="slot"><div class="slot-time">11:30</div><div class="slot-content"><div class="slot-title">Rinnō-ji e Futarasan Jinja</div><div class="slot-desc">Due siti adiacenti nel complesso. Rinnō-ji ha la sala dei tre Buddha dorati.</div></div></div>
+    <div class="slot"><div class="slot-time">13:30</div><div class="slot-content"><div class="slot-title">Pranzo: yuba di Nikkō</div><div class="slot-desc">La specialità locale è il yuba (tofu di soia). Molti ristoranti economici vicino alla stazione.</div><span class="tag tag-food">Yuba</span></div></div>
+    <div class="slot"><div class="slot-time">14:30</div><div class="slot-content"><div class="slot-title">Cascata Kegon + Lago Chūzenji (opzionale)</div><div class="slot-desc">Bus 30 min. Cascata di 97m, lago a 1269m di quota. Temperatura fresca — ottimo in agosto.</div><span class="tag tag-tip">Fresco in agosto</span></div></div>
+    <div class="slot"><div class="slot-time">17:00</div><div class="slot-content"><div class="slot-title">Rientro a Tokyo</div><div class="slot-desc">Punta a essere di ritorno entro le 19:30. Cena leggera vicino all'hotel.</div></div></div>
+  </div>
+</div>
+
+<!-- 26 MER -->
+<div class="day-card">
+  <div class="day-header" onclick="toggle('t5')">
+    <span class="day-badge" style="background:#EEEDFE;color:#3C3489">26 ago · Mer</span>
+    <div class="day-meta"><div class="day-title">Teamlab Planets + Odaiba & Roppongi</div><div class="day-sub">Arte digitale immersiva + design contemporaneo</div></div>
+    <span class="chevron" id="chev-t5">›</span>
+  </div>
+  <div class="day-body" id="t5">
+    <div class="slot"><div class="slot-time">9:00</div><div class="slot-content"><div class="slot-title">Teamlab Planets — Toyosu</div><div class="slot-desc">Arte digitale immersiva: piedi nudi nell'acqua, riflessi infiniti, fiori digitali. PRENOTARE MESI PRIMA — agosto è sold out.</div><span class="tag tag-book">~3200¥ · Prenota subito</span></div></div>
+    <div class="slot"><div class="slot-time">12:00</div><div class="slot-content"><div class="slot-title">Toyosu Market (opzionale)</div><div class="slot-desc">Osservatori gratis, pranzo con sushi freschissimo nel mercato.</div><span class="tag tag-food">Sushi al mercato</span></div></div>
+    <div class="slot"><div class="slot-time">14:00</div><div class="slot-content"><div class="slot-title">Odaiba</div><div class="slot-desc">Replica Statua della Libertà, Rainbow Bridge, Miraikan con robot ASIMO, Gundam gigante a Divercity.</div></div></div>
+    <div class="slot"><div class="slot-time">17:00</div><div class="slot-content"><div class="slot-title">Roppongi Hills — Mori Art Museum</div><div class="slot-desc">Vista dalla torre al tramonto, Spider di Louise Bourgeois nel piazzale.</div><span class="tag tag-book">~1800¥</span></div></div>
+    <div class="slot"><div class="slot-time">Sera</div><div class="slot-content"><div class="slot-title">Cena ad Azabu-Juban</div><div class="slot-desc">Quartiere residenziale vicino a Roppongi: ristoranti eccellenti e meno turistici.</div><span class="tag tag-food">Cena</span></div></div>
+  </div>
+</div>
+
+<!-- 27 GIO -->
+<div class="day-card">
+  <div class="day-header" onclick="toggle('t6')">
+    <span class="day-badge" style="background:#EEEDFE;color:#3C3489">27 ago · Gio</span>
+    <div class="day-meta"><div class="day-title">Yanaka & Ikebukuro — preparazione partenza</div><div class="day-sub">Quartiere storico + shopping finale</div></div>
+    <span class="chevron" id="chev-t6">›</span>
+  </div>
+  <div class="day-body" id="t6">
+    <div class="slot"><div class="slot-time">9:00</div><div class="slot-content"><div class="slot-title">Yanaka</div><div class="slot-desc">Il quartiere sopravvissuto ai bombardamenti WWII e al terremoto del '23. Stradine con case di legno, botteghe artigiane, cimitero storico. Yanaka Ginza è la via dello shopping locale più autentica di Tokyo.</div><span class="tag tag-free">Gratis</span></div></div>
+    <div class="slot"><div class="slot-time">11:30</div><div class="slot-content"><div class="slot-title">Nezu Jinja</div><div class="slot-desc">Tunnel di torii rossi — meno famoso di Fushimi Inari, altrettanto bello, quasi senza folla.</div><span class="tag tag-free">Gratis</span><span class="tag tag-tip">Meno folla di Fushimi</span></div></div>
+    <div class="slot"><div class="slot-time">13:00</div><div class="slot-content"><div class="slot-title">Pranzo a Nezu o Sendagi</div><div class="slot-desc">Kissaten anni '60, tofu shop, soba artigianali.</div><span class="tag tag-food">Pranzo</span></div></div>
+    <div class="slot"><div class="slot-time">15:00</div><div class="slot-content"><div class="slot-title">Ikebukuro — Sunshine City</div><div class="slot-desc">Sunshine City con acquario e osservatorio, Tokyu Hands per gadget e design, Animate per manga/anime.</div></div></div>
+    <div class="slot"><div class="slot-time">Sera</div><div class="slot-content"><div class="slot-title">Cena speciale</div><div class="slot-desc">Scegli qualcosa di memorabile: teppanyaki, wagyu, o un kaiseki. Poi valigie — domani si parte per Kyoto.</div><span class="tag tag-food">Cena speciale</span></div></div>
+    <div class="tip-box">Il 28 agosto (venerdì) prendi il Nozomi delle 7:00–8:00 da Tokyo Station. Arrivi a Kyoto per le 9:15 — tempo perfetto per Fushimi Inari prima della folla del weekend.</div>
+  </div>
+</div>
+
+<!-- 28 VEN JOLLY -->
+<div class="day-card">
+  <div class="day-header" onclick="toggle('t7')">
+    <span class="day-badge" style="background:#F4C0D1;color:#72243E">28 ago · Ven</span>
+    <div class="day-meta"><div class="day-title">Giornata jolly — Terme + libero</div><div class="day-sub">Decompressione prima di Kyoto</div></div>
+    <span class="chevron" id="chev-t7">›</span>
+  </div>
+  <div class="day-body" id="t7">
+    <div class="slot"><div class="slot-time">8:00</div><div class="slot-content"><div class="slot-title">Onsen — Spa LaQua o Thermae-Yu</div><div class="slot-desc">Spa LaQua è a Bunkyo (vicino a Tokyo Dome), Thermae-Yu è a Shinjuku. Entrambe centrali, vasche interne ed esterne, yukata disponibile. 2–3 ore di relax totale dopo 6 giorni intensi.</div><span class="tag tag-onsen">~1500–2500¥</span><span class="tag tag-tip">Thermae-Yu se dormi a Shinjuku</span></div></div>
+    <div class="slot"><div class="slot-time">11:30</div><div class="slot-content"><div class="slot-title">Pranzo leggero</div><div class="slot-desc">Zona terme, niente di impegnativo.</div><span class="tag tag-food">Pranzo</span></div></div>
+    <div class="slot"><div class="slot-time">13:00</div><div class="slot-content"><div class="slot-title">Pomeriggio jolly — scegli in base all'umore</div><div class="slot-desc"><strong>Relax:</strong> Nakameguro — canale, caffè indipendenti, niente programmato.<br><br><strong>Recupero:</strong> Tsukiji outer market (entro le 13:30) + Hamarikyu Gardens con teahouse sull'acqua.<br><br><strong>Energia:</strong> Shimokitazawa per vinili, vintage e izakaya serali.</div><span class="tag tag-tip">Nessun obbligo</span></div></div>
+    <div class="slot"><div class="slot-time">Sera</div><div class="slot-content"><div class="slot-title">Ultima sera a Tokyo + valigie</div><div class="slot-desc">Cena tranquilla vicino all'hotel. Prepara le valigie — domani mattina presto Shinkansen per Kyoto.</div><span class="tag tag-food">Cena</span></div></div>
+    <div class="tip-box">Il 29 agosto (sabato) prendi il Nozomi delle 7:00–8:00 da Tokyo Station. Arrivi a Kyoto per le 9:15.</div>
+  </div>
+</div>
+
+<!-- ==================== KYOTO ==================== -->
+<div class="city-divider">
+  <span class="city-pill" style="background:#E1F5EE;color:#085041">Kyoto · 29 agosto – 1 settembre · 4 giorni</span>
+  <div class="city-line"></div>
+</div>
+
+<!-- 29 AGO SAB -->
+<div class="day-card">
+  <div class="day-header" onclick="toggle('k1')">
+    <span class="day-badge" style="background:#E1F5EE;color:#085041">29 ago · Sab</span>
+    <div class="day-meta"><div class="day-title">Arrivo + Fushimi Inari & Gion</div><div class="day-sub">Il classico di Kyoto — fatto bene</div></div>
+    <span class="chevron" id="chev-k1">›</span>
+  </div>
+  <div class="day-body" id="k1">
+    <div class="slot"><div class="slot-time">7:00</div><div class="slot-content"><div class="slot-title">Shinkansen da Tokyo — arrivo a Kyoto</div><div class="slot-desc">Nozomi delle 7:00–7:30 da Tokyo Station. Arrivi a Kyoto verso le 9:15. Lascia i bagagli in coin locker alla stazione.</div><span class="tag tag-transit">Nozomi · ~2h15</span></div></div>
+    <div class="slot"><div class="slot-time">9:30</div><div class="slot-content"><div class="slot-title">Fushimi Inari Taisha</div><div class="slot-desc">I tunnel di torii arancioni che salgono sul Monte Inari. Sabato — arriva entro le 9:30. Sali almeno fino al Yotsutsuji (45 min) per la vista sulla città.</div><span class="tag tag-free">Gratis · 24h</span><span class="tag tag-warn">Sabato: vai presto</span></div></div>
+    <div class="slot"><div class="slot-time">12:00</div><div class="slot-content"><div class="slot-title">Pranzo: Nishiki Market</div><div class="slot-desc">"La cucina di Kyoto": 400 metri di bancarelle con tamagoyaki, tsukemono, tofu, yakitori.</div><span class="tag tag-food">Nishiki Market</span></div></div>
+    <div class="slot"><div class="slot-time">14:30</div><div class="slot-content"><div class="slot-title">Kinkaku-ji — il Padiglione d'Oro</div><div class="slot-desc">Il sito più famoso di Kyoto. Percorso circolare di 20–25 minuti. La luce del pomeriggio sul padiglione riflesso nello stagno è ottima per le foto.</div><span class="tag tag-book">~500¥</span></div></div>
+    <div class="slot"><div class="slot-time">16:00</div><div class="slot-content"><div class="slot-title">Check-in hotel + pausa caldo</div><div class="slot-desc">Le ore 13–16 in agosto a Kyoto sono le peggiori: 38°C con umidità alta.</div><span class="tag tag-tip">Pausa obbligatoria</span></div></div>
+    <div class="slot"><div class="slot-time">17:00</div><div class="slot-content"><div class="slot-title">Gion — distretto delle geisha</div><div class="slot-desc">Hanamikoji Street: machiya di legno, ochaya, lanterne. Possibile avvistamento di maiko verso le 17:30–19:00. Non seguirle, non fotografarle da vicino.</div><span class="tag tag-free">Gratis</span></div></div>
+    <div class="slot"><div class="slot-time">Sera</div><div class="slot-content"><div class="slot-title">Cena a Pontocho</div><div class="slot-desc">Il vicolo parallelo al fiume Kamo: ristoranti con terrazza sull'acqua (kawayuka). Prenota con anticipo in agosto.</div><span class="tag tag-food">Prenota</span></div></div>
+  </div>
+</div>
+
+<!-- 30 AGO DOM -->
+<div class="day-card">
+  <div class="day-header" onclick="toggle('k2')">
+    <span class="day-badge" style="background:#E1F5EE;color:#085041">30 ago · Dom</span>
+    <div class="day-meta"><div class="day-title">Arashiyama</div><div class="day-sub">Bamboo grove, templi zen e il fiume Oi</div></div>
+    <span class="chevron" id="chev-k2">›</span>
+  </div>
+  <div class="day-body" id="k2">
+    <div class="slot"><div class="slot-time">7:00</div><div class="slot-content"><div class="slot-title">Bamboo Grove</div><div class="slot-desc">Va visitato alle 7:00, senza discussioni. Domenica — alle 9:30 è già pieno. Treno JR Sagano da Kyoto Station (15 min). Cammina lentamente: il suono del bambù nel vento è l'esperienza.</div><span class="tag tag-free">Gratis</span><span class="tag tag-warn">Domenica: entro le 7:30</span></div></div>
+    <div class="slot"><div class="slot-time">8:30</div><div class="slot-content"><div class="slot-title">Tenryu-ji</div><div class="slot-desc">Uno dei cinque grandi templi zen di Kyoto con giardino UNESCO. Lo stagno con le carpe, i pini, la montagna sullo sfondo.</div><span class="tag tag-book">~700¥ giardino</span></div></div>
+    <div class="slot"><div class="slot-time">10:00</div><div class="slot-content"><div class="slot-title">Passeggiata lungo il Togetsukyō e il fiume Oi</div><div class="slot-desc">Il ponte di legno con la montagna sullo sfondo è l'immagine iconica di Arashiyama. Passeggiata sul lungofiume.</div></div></div>
+    <div class="slot"><div class="slot-time">11:00</div><div class="slot-content"><div class="slot-title">Okochi Sanso Villa</div><div class="slot-desc">Villa privata di un attore del cinema muto degli anni '20. Giardino spettacolare con vista 360° su Kyoto. Include tè matcha e wagashi. Meno conosciuta dai turisti.</div><span class="tag tag-book">~1000¥ (include tè)</span><span class="tag tag-tip">Gioiello nascosto</span></div></div>
+    <div class="slot"><div class="slot-time">13:00</div><div class="slot-content"><div class="slot-title">Pranzo ad Arashiyama</div><div class="slot-desc">Tofu kaiseki nella zona — Arashiyama è famosa per il tofu yudofu. Molti ristoranti con vista sul fiume.</div><span class="tag tag-food">Tofu kaiseki</span></div></div>
+    <div class="slot"><div class="slot-time">15:00</div><div class="slot-content"><div class="slot-title">Sagano Scenic Railway (opzionale)</div><div class="slot-desc">Trenino turistico nella gola del fiume Hozu. 7 km, 25 minuti, panorami bellissimi. Prenotare in anticipo in agosto.</div><span class="tag tag-book">~900¥ · Prenota</span></div></div>
+    <div class="slot"><div class="slot-time">Sera</div><div class="slot-content"><div class="slot-title">Rientro a Kyoto + cena</div><div class="slot-desc">Kaiseki economico nella zona Kawaramachi — a Kyoto anche le versioni budget sono eccezionali.</div><span class="tag tag-food">Kaiseki</span></div></div>
+  </div>
+</div>
+
+<!-- 31 AGO LUN -->
+<div class="day-card">
+  <div class="day-header" onclick="toggle('k3')">
+    <span class="day-badge" style="background:#E1F5EE;color:#085041">31 ago · Lun</span>
+    <div class="day-meta"><div class="day-title">Day trip — Nara</div><div class="day-sub">Il Grande Buddha e i cervi sacri</div></div>
+    <span class="chevron" id="chev-k3">›</span>
+  </div>
+  <div class="day-body" id="k3">
+    <div class="slot"><div class="slot-time">8:00</div><div class="slot-content"><div class="slot-title">Treno Kyoto → Nara</div><div class="slot-desc">JR Nara Line da Kyoto Station: 45 min con il treno rapido Miyakoji, ~720¥ (coperto da JR Pass). Arriva a Nara entro le 9:00.</div><span class="tag tag-transit">JR Pass valido</span></div></div>
+    <div class="slot"><div class="slot-time">9:00</div><div class="slot-content"><div class="slot-title">Parco di Nara — cervi sacri</div><div class="slot-desc">Appena esci dalla stazione ci sono già. Considerati messaggeri degli dei shinto — abituati agli umani e abbastanza invadenti. Shika senbei (biscotti per cervi) dai venditori ambulanti.</div><span class="tag tag-free">Parco gratis</span><span class="tag tag-food">Shika senbei ~200¥</span></div></div>
+    <div class="slot"><div class="slot-time">9:30</div><div class="slot-content"><div class="slot-title">Tōdai-ji — il Grande Buddha</div><div class="slot-desc">Il tempio in legno più grande del mondo ospita Daibutsu, un Buddha di bronzo di 15 metri. C'è una colonna con un buco alla base larga quanto la narice del Buddha: chi ci passa attraverso ha fortuna eterna.</div><span class="tag tag-book">~600¥</span></div></div>
+    <div class="slot"><div class="slot-time">11:00</div><div class="slot-content"><div class="slot-title">Kasuga Taisha</div><div class="slot-desc">Santuario shinto fondato nell'VIII secolo, patrimonio UNESCO, famoso per le migliaia di lanterne di bronzo e pietra. Il percorso nel bosco è suggestivo.</div><span class="tag tag-book">~500¥ accesso interno</span></div></div>
+    <div class="slot"><div class="slot-time">12:30</div><div class="slot-content"><div class="slot-title">Pranzo a Nara</div><div class="slot-desc">Kakinoha-zushi (sushi in foglie di cachi) è la specialità locale. Nakatanidou per i mochi preparati a mano a velocità spettacolare.</div><span class="tag tag-food">Kakinoha-zushi · Mochi</span></div></div>
+    <div class="slot"><div class="slot-time">16:00</div><div class="slot-content"><div class="slot-title">Rientro a Kyoto</div><div class="slot-desc">Treno delle 16:00–16:30. Arrivo a Kyoto per le 17:15. Cena nel quartiere Kawaramachi.</div></div></div>
+  </div>
+</div>
+
+<!-- 1 SET MAR -->
+<div class="day-card">
+  <div class="day-header" onclick="toggle('k4')">
+    <span class="day-badge" style="background:#E1F5EE;color:#085041">1 set · Mar</span>
+    <div class="day-meta"><div class="day-title">Higashiyama, Kiyomizudera & Tetsugaku no Michi</div><div class="day-sub">Il meglio di Kyoto in una giornata</div></div>
+    <span class="chevron" id="chev-k4">›</span>
+  </div>
+  <div class="day-body" id="k4">
+    <div class="slot"><div class="slot-time">7:30</div><div class="slot-content"><div class="slot-title">Kiyomizudera — alba sul palco di legno</div><div class="slot-desc">La terrazza in legno sospesa con vista sulla città. Apre alle 6:00 in agosto — entra presto. "Saltare dal palco di Kiyomizudera" è un'espressione giapponese per fare una scelta coraggiosa.</div><span class="tag tag-book">~500¥</span><span class="tag tag-tip">Entra alle 6:00–7:00</span></div></div>
+    <div class="slot"><div class="slot-time">8:30</div><div class="slot-content"><div class="slot-title">Ninenzaka & Sannenzaka</div><div class="slot-desc">Le due strade acciottolate storiche sotto Kiyomizudera — machiya tradizionali, ceramica, lacca, matcha soft cream. Alle 8:30 sono quasi deserte.</div><span class="tag tag-free">Gratis</span><span class="tag tag-warn">Evita dopo le 10:00</span></div></div>
+    <div class="slot"><div class="slot-time">10:00</div><div class="slot-content"><div class="slot-title">Kodai-ji</div><div class="slot-desc">Tempio fondato dalla vedova di Toyotomi Hideyoshi — bamboo grove privata nel retro, molto meno affollata di Arashiyama.</div><span class="tag tag-book">~600¥</span></div></div>
+    <div class="slot"><div class="slot-time">12:00</div><div class="slot-content"><div class="slot-title">Pranzo: obanzai di Kyoto</div><div class="slot-desc">La cucina tradizionale di Kyoto — piccoli piatti vegetariani di stagione. Molti ristoranti nell'area di Higashiyama.</div><span class="tag tag-food">Obanzai</span></div></div>
+    <div class="slot"><div class="slot-time">14:00</div><div class="slot-content"><div class="slot-title">Tetsugaku no Michi — Sentiero del Filosofo</div><div class="slot-desc">2 km lungo un canale fiancheggiato da ciliegi. Prende il nome dal filosofo Nishida Kitaro. Collega Nanzen-ji a Ginkaku-ji.</div><span class="tag tag-free">Gratis</span></div></div>
+    <div class="slot"><div class="slot-time">15:00</div><div class="slot-content"><div class="slot-title">Nanzen-ji</div><div class="slot-desc">Grande complesso zen con un acquedotto di mattoni rossi vittoriani. Il sanmon (cancello principale) offre vista sulla città.</div><span class="tag tag-free">Complesso gratis</span><span class="tag tag-book">Subtempi ~600¥</span></div></div>
+    <div class="slot"><div class="slot-time">16:30</div><div class="slot-content"><div class="slot-title">Ginkaku-ji — il Padiglione d'Argento</div><div class="slot-desc">Non è d'argento (non fu mai rivestito), ma il giardino di sabbia bianca e il muschio sono tra le cose più belle di Kyoto.</div><span class="tag tag-book">~500¥</span></div></div>
+    <div class="slot"><div class="slot-time">Sera</div><div class="slot-content"><div class="slot-title">Ultima sera a Kyoto</div><div class="slot-desc">Cena in un ristorante con noren tradizionali, poi passeggiata serale a Gion. Domani mattina presto si parte per Osaka.</div><span class="tag tag-food">Cena d'addio</span></div></div>
+    <div class="tip-box">Il 2 settembre mattina prendi lo Shinkansen da Kyoto Station verso Osaka (~15 min). Check-in in hotel, poi subito Dōtonbori e Namba per il primo impatto con la capitale del cibo.</div>
+  </div>
+</div>
+
+<!-- ==================== OSAKA ==================== -->
+<div class="city-divider">
+  <span class="city-pill" style="background:#FAEEDA;color:#633806">Osaka · 2–4 settembre · 3 giorni</span>
+  <div class="city-line"></div>
+</div>
+
+<!-- 2 SET MER -->
+<div class="day-card">
+  <div class="day-header" onclick="toggle('o1')">
+    <span class="day-badge" style="background:#FAEEDA;color:#633806">2 set · Mer</span>
+    <div class="day-meta"><div class="day-title">Arrivo da Kyoto — Dōtonbori & Namba</div><div class="day-sub">Primo impatto con la capitale del cibo</div></div>
+    <span class="chevron" id="chev-o1">›</span>
+  </div>
+  <div class="day-body" id="o1">
+    <div class="slot"><div class="slot-time">Mattina</div><div class="slot-content"><div class="slot-title">Shinkansen Kyoto → Osaka</div><div class="slot-desc">~15 min con il Nozomi. Check-in in hotel, lascia i bagagli e parti subito a esplorare.</div><span class="tag tag-transit">Nozomi · ~15 min</span></div></div>
+    <div class="slot"><div class="slot-time">11:30</div><div class="slot-content"><div class="slot-title">Kuromon Ichiba — il mercato coperto</div><div class="slot-desc">400 metri di bancarelle con frutti di mare, wagyu, tamagoyaki. La "cucina di Osaka" nel senso più diretto. Granchi, ostriche grigliate al momento, melone giapponese tagliato. Il pranzo si mangia camminando.</div><span class="tag tag-food">Pranzo al mercato</span></div></div>
+    <div class="slot"><div class="slot-time">13:30</div><div class="slot-content"><div class="slot-title">Namba & Shinsaibashi</div><div class="slot-desc">Il cuore commerciale di Osaka. Shinsaibashi-suji è la galleria coperta che collega Namba a Shinsaibashi — negozi, street food, atmosfera vivace. America-Mura per il streetwear giapponese.</div></div></div>
+    <div class="slot"><div class="slot-time">17:00</div><div class="slot-content"><div class="slot-title">Dōtonbori</div><div class="slot-desc">Il cuore pulsante di Osaka: il canale con l'iconico cartellone del nuotatore Glico, insegne al neon, ristoranti in fila. Di sera è spettacolare. Takoyaki da Wanaka — prima tappa obbligatoria.</div><span class="tag tag-food">Takoyaki</span></div></div>
+    <div class="slot"><div class="slot-time">Sera</div><div class="slot-content"><div class="slot-title">Cena: okonomiyaki di Osaka o fugu</div><div class="slot-desc">L'okonomiyaki di Osaka è misto (non a strati come Hiroshima). Il fugu (pesce palla) a Osaka costa molto meno che altrove — vale la pena provarlo questa sera.</div><span class="tag tag-food">Okonomiyaki · Fugu</span></div></div>
+  </div>
+</div>
+
+<!-- 3 SET GIO -->
+<div class="day-card">
+  <div class="day-header" onclick="toggle('o2')">
+    <span class="day-badge" style="background:#FAEEDA;color:#633806">3 set · Gio</span>
+    <div class="day-meta"><div class="day-title">Day trip — Hiroshima + Miyajima</div><div class="day-sub">Come da programma già dettagliato</div></div>
+    <span class="chevron" id="chev-o2">›</span>
+  </div>
+  <div class="day-body" id="o2">
+    <div class="slot"><div class="slot-time">Mattina</div><div class="slot-content"><div class="slot-title">Nozomi Shin-Osaka → Hiroshima</div><div class="slot-desc">~45 min con il Nozomi. Parti presto — arriva a Hiroshima entro le 9:00.</div><span class="tag tag-transit">Nozomi · ~45 min da Osaka</span></div></div>
+    <div class="slot"><div class="slot-time">9:30</div><div class="slot-content"><div class="slot-title">Peace Memorial Museum</div><div class="slot-desc">Uno dei musei più importanti e toccanti del mondo. Racconta il 6 agosto 1945 con oggetti personali delle vittime, fotografie, testimonianze. Prevedi 90 minuti minimi — non è un posto da attraversare di corsa.</div><span class="tag tag-book">~200¥</span></div></div>
+    <div class="slot"><div class="slot-time">11:00</div><div class="slot-content"><div class="slot-title">Genbaku Dome + Peace Park</div><div class="slot-desc">L'unico edificio rimasto in piedi vicino all'ipocentro dell'esplosione. Fiamma della Pace, Cenotafio, Memoriale dei Bambini con le gru di carta di Sadako Sasaki.</div><span class="tag tag-free">Gratis · Esterno</span></div></div>
+    <div class="slot"><div class="slot-time">13:00</div><div class="slot-content"><div class="slot-title">Pranzo: okonomiyaki di Hiroshima</div><div class="slot-desc">Diverso da quello di Osaka: strati sovrapposti con soba dentro. Okonomi-mura è un edificio su 3 piani con 25 bancarelle — il posto perfetto.</div><span class="tag tag-food">Okonomi-mura · ~1000¥</span></div></div>
+    <div class="slot"><div class="slot-time">14:30</div><div class="slot-content"><div class="slot-title">JR + traghetto per Miyajima</div><div class="slot-desc">JR San'yo Line fino a Miyajimaguchi (~25 min, coperto da JR Pass), poi traghetto JR per l'isola (10 min, coperto da JR Pass).</div><span class="tag tag-transit">JR Pass valido anche traghetto</span></div></div>
+    <div class="slot"><div class="slot-time">15:15</div><div class="slot-content"><div class="slot-title">Itsukushima Jinja e il torii galleggiante</div><div class="slot-desc">Il grande torii arancione in mare. Con l'alta marea sembra galleggiare, con la bassa marea ci si cammina sotto. Controlla le tavole delle maree in anticipo e scegli l'orario di conseguenza.</div><span class="tag tag-book">Santuario ~300¥</span><span class="tag tag-tip">Controlla maree prima</span></div></div>
+    <div class="slot"><div class="slot-time">16:30</div><div class="slot-content"><div class="slot-title">Passeggiata sull'isola + Daisho-in</div><div class="slot-desc">Cervi sacri (più selvatici di Nara — attenti alle borse), momiji manju, negozietti di spatole di legno. Daisho-in: tempio con centinaia di statue Jizo con cappellini di lana.</div><span class="tag tag-free">Daisho-in gratis</span><span class="tag tag-food">Momiji manju</span></div></div>
+    <div class="slot"><div class="slot-time">18:30</div><div class="slot-content"><div class="slot-title">Rientro a Osaka</div><div class="slot-desc">Traghetto → Miyajimaguchi → Hiroshima Station → Nozomi per Shin-Osaka. Totale ~1h20. Arrivo a Osaka ~21:00. Cena leggera vicino all'hotel.</div><span class="tag tag-transit">~1h20 totale</span></div></div>
+  </div>
+</div>
+
+<!-- 4 SET VEN -->
+<div class="day-card">
+  <div class="day-header" onclick="toggle('o3')">
+    <span class="day-badge" style="background:#FAEEDA;color:#633806">4 set · Ven</span>
+    <div class="day-meta"><div class="day-title">Osaka Castello & Shinsekai</div><div class="day-sub">Storia, retrò e cibo da strada autentico</div></div>
+    <span class="chevron" id="chev-o3">›</span>
+  </div>
+  <div class="day-body" id="o3">
+    <div class="slot"><div class="slot-time">9:00</div><div class="slot-content"><div class="slot-title">Osaka Castle + parco</div><div class="slot-desc">Il castello ricostruito domina la città. Museo interno sulla storia dei Toyotomi. Vista dalla torre all'ottavo piano. Il parco attorno è pieno di locali in pausa — molto più "vero" dei parchi turistici.</div><span class="tag tag-book">~600¥ castello</span></div></div>
+    <div class="slot"><div class="slot-time">11:00</div><div class="slot-content"><div class="slot-title">Shinsekai</div><div class="slot-desc">Il quartiere costruito nel 1912, mai riqualificato — congelato nell'atmosfera Shōwa degli anni '60. Kushikatsu è la specialità: frittelle su stecco immerse nella salsa. Regola sacra: non inzuppare due volte.</div><span class="tag tag-food">Kushikatsu · no double-dip</span><span class="tag tag-tip">Atmosfera unica</span></div></div>
+    <div class="slot"><div class="slot-time">13:00</div><div class="slot-content"><div class="slot-title">Tsūtenkaku Tower (opzionale)</div><div class="slot-desc">La torre simbolo di Shinsekai, 103 metri. Al piano della fortuna c'è Billiken — grattale i piedi per fortuna.</div><span class="tag tag-book">~800¥</span></div></div>
+    <div class="slot"><div class="slot-time">15:00</div><div class="slot-content"><div class="slot-title">Ultimi acquisti + valigie</div><div class="slot-desc">Don Quijote per souvenir economici, farmacia giapponese per cosmetici, depachika nei grandi magazzini per dolci da portare a casa.</div></div></div>
+    <div class="slot"><div class="slot-time">Sera</div><div class="slot-content"><div class="slot-title">Ultima cena in Giappone</div><div class="slot-desc">Scegli qualcosa di speciale: kaiseki a Osaka, sushi al banco con lo chef davanti, o torna a Dōtonbori per salutare il Glico Runner. Il Giappone merita un addio degno.</div><span class="tag tag-food">Cena speciale</span></div></div>
+    <div class="tip-box">Il 5 settembre (sabato): da Shin-Osaka a Narita ci vogliono circa 3 ore (Shinkansen fino a Tokyo + Narita Express). Parti dall'hotel non oltre le 7:00. Metti la sveglia presto.</div>
+  </div>
+</div>
+
+<!-- ==================== PARTENZA ==================== -->
+<div class="city-divider">
+  <span class="city-pill" style="background:#D3D1C7;color:#2C2C2A">Partenza · 5 settembre · Sabato</span>
+  <div class="city-line"></div>
+</div>
+<div class="day-card">
+  <div class="day-header" onclick="toggle('p1')">
+    <span class="day-badge" style="background:#D3D1C7;color:#2C2C2A">5 set · Sab</span>
+    <div class="day-meta"><div class="day-title">Partenza da Narita</div><div class="day-sub">Shin-Osaka → Tokyo → Narita · ~3 ore di viaggio</div></div>
+    <span class="chevron" id="chev-p1">›</span>
+  </div>
+  <div class="day-body" id="p1">
+    <div class="slot"><div class="slot-time">6:30–7:00</div><div class="slot-content"><div class="slot-title">Checkout hotel + trasferimento a Shin-Osaka</div><div class="slot-desc">Taxi o metro fino a Shin-Osaka Station. Parti presto — il treno delle 7:00–7:30 ti porta a Tokyo per le 9:30–10:00.</div><span class="tag tag-warn">Sveglia presto</span></div></div>
+    <div class="slot"><div class="slot-time">7:00</div><div class="slot-content"><div class="slot-title">Nozomi Shin-Osaka → Tokyo</div><div class="slot-desc">~2h30. Arrivo a Tokyo Station.</div><span class="tag tag-transit">JR Pass valido</span></div></div>
+    <div class="slot"><div class="slot-time">9:30</div><div class="slot-content"><div class="slot-title">Narita Express da Tokyo Station</div><div class="slot-desc">~1h fino a Narita Airport. Coperto da JR Pass. Arrivi in aeroporto con ampio anticipo per il check-in internazionale.</div><span class="tag tag-transit">N'EX · ~1h · JR Pass</span></div></div>
+    <div class="tip-box">Totale viaggio Osaka → Narita: ~3h30. Con un volo internazionale nel pomeriggio, parti dall'hotel entro le 7:00 al massimo.</div>
+  </div>
+</div>
+
+<!-- ==================== DA PRENOTARE ==================== -->
+<div class="city-divider">
+  <span class="city-pill" style="background:#FAECE7;color:#993C1D">Da prenotare prima di partire</span>
+  <div class="city-line"></div>
+</div>
+<div class="prenotare-box">
+  <div><strong style="color:#1a1a18">JR Pass (14 giorni)</strong> — acquista online prima di partire dall'Italia su jrpass.com. Non si compra in Giappone a prezzi convenienti. Copre tutti gli Shinkansen, Narita Express, traghetto per Miyajima.</div>
+  <div><strong style="color:#1a1a18">Teamlab Planets</strong> — teamlab.art — sold out settimane prima in agosto. Prenota appena apre il calendario 2026.</div>
+  <div><strong style="color:#1a1a18">Shibuya Sky</strong> — prenotazione online consigliata, disponibile anche last minute al mattino.</div>
+  <div><strong style="color:#1a1a18">Sagano Scenic Railway (Kyoto)</strong> — prenotazione online consigliata in agosto.</div>
+  <div><strong style="color:#1a1a18">Ristoranti con kawayuka a Pontocho (Kyoto)</strong> — prenota con 2–3 settimane di anticipo in agosto.</div>
+  <div><strong style="color:#1a1a18">Hotel Tokyo</strong> — 8 notti (21–28 agosto). Zona Shinjuku o Shibuya. Alta stagione — prenota con 4–6 mesi di anticipo.</div>
+  <div><strong style="color:#1a1a18">Hotel Kyoto</strong> — 4 notti (29 agosto–1 settembre). Zona Gion o Kawaramachi. Se vuoi un ryokan, prenota con 3–4 mesi di anticipo.</div>
+  <div><strong style="color:#1a1a18">Hotel Osaka</strong> — 3 notti (2–4 settembre). Zona Namba o Shinsaibashi. Più facile da trovare last minute rispetto a Tokyo e Kyoto.</div>
+  <div><strong style="color:#1a1a18">SIM / eSIM</strong> — compra in aeroporto a Haneda oppure prenota una eSIM giapponese prima di partire (IIJmio, Docomo Tourist SIM).</div>
+</div>
+
+<script>
+function toggle(id) {
+  const body = document.getElementById(id);
+  const chev = document.getElementById('chev-' + id);
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  chev.classList.toggle('open', !isOpen);
+}
+</script>
+</body>
+</html>
